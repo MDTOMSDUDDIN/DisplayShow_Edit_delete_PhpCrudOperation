@@ -12,13 +12,12 @@ if(isset($_GET['id'])){
    $email     = $data['email'];
 }
 
-if(isset($_POST['submit'])){
+if(isset($_POST['update'])){
     $id=$_POST['id'];
-    $tom=$_POST['id'];
     $firstname = $_POST['firstname'];
     $lastname  = $_POST['lastname'];
     $email     = $_POST['email'];
-$sql1="UPDATE student SET id='$tom', firstname='$firstname',lastname='$lastname',email='$email'  WHERE id='$id'";
+$sql1="UPDATE student SET firstname='$firstname',lastname='$lastname',email='$email'  WHERE id='$id'";
  if(mysqli_query($conn,$sql1)==TRUE){
     echo "data updated";
     header('location:view.php');
@@ -49,7 +48,7 @@ $sql1="UPDATE student SET id='$tom', firstname='$firstname',lastname='$lastname'
                 Email :<br>
                 <input type="email" name="email" value="<?php echo $email ?>"><br><br>
                 <input type="text " name="id" value="<?php echo $id ?>" >
-                <input class="btn btn-success " type="submit" value="submit" name="submit">
+                <input class="btn btn-success " type="submit" value="update" name="update">
             </form>
         </div>
        <div class="col-sm-3"></div>
